@@ -1,0 +1,20 @@
+.modal-window{
+  display: block !important;
+  .modal-content{
+    .modal-header{
+      border-bottom: 0;
+    }
+    .colored-name{
+      color: $button-main;
+      font-weight: 600;
+    }
+    border: none;
+    border-radius: 0;
+    background-color: #f7f7f7;
+    box-shadow: 1px 1px 2px 0px rgba(74, 74, 74, 0.25);
+    .modal-title{
+      text-transform: uppercase;
+      color: $button-main;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.search-field {
+  display: flex;
+  width: 100%;
+  border: 1px solid #c5c5c5;
+  border-radius: 3px;
+  margin-bottom: .7rem;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  input{
+    border: none;
+    &:focus{
+      border: none !important;
+    }
+  }
+}
+
+#focused{
+  border-color: $button-main;
+}

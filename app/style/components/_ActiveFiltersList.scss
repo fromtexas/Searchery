@@ -1,0 +1,22 @@
+.filters-list{
+  display: inline-flex;
+  margin-bottom: 0;
+  li{
+    text-align: center;
+    min-width: 8rem;
+    line-height: 2.51;
+    text-transform: capitalize;
+    a{
+      color: #848383 !important;
+      display: inline-flex;
+      .cross{
+        cursor:pointer;
+        padding-left: 7px;
+        padding-right: 7px;
+        &:hover{
+          color: $button-main;
+        }
+      }
+    }
+  }
+}

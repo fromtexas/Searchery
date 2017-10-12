@@ -1,0 +1,11 @@
+.sort {
+  a{
+    cursor: pointer;
+    margin-right: .5rem;
+    color: $button-main !important;
+  }
+}
+
+#active-sort{
+  font-weight: bold;
+}

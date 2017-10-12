@@ -1,0 +1,14 @@
+.drop-wrap {
+  .category-list {
+    cursor:pointer;
+  }
+  .hidden{
+    padding: .5rem;
+    p{
+      cursor: pointer;
+      &:hover{
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}

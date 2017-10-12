@@ -1,0 +1,26 @@
+.task{
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  display: flex;
+  transition: .5s;
+  cursor: pointer;
+  img{
+    height: 10rem;
+    width: 10rem;
+    opacity: .5;
+    object-fit: cover;
+    filter: grayscale(100%);
+  }
+  div{
+    padding-left: 0.7rem;
+    .colored{
+      color: $button-main;
+    }
+    h3{
+      text-transform: uppercase;
+    }
+  }
+  &:hover{
+    background-color: #f1f1f1 !important;
+  }
+}
