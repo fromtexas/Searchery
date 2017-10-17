@@ -2,6 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const envFile = require('node-env-file');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractPlugin = new ExtractTextPlugin({
+    filename: 'main.css'
+});
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -39,26 +44,19 @@ module.exports = {
             },
             {
                 test:/\.scss$/,
-                use: [{
-                loader: "style-loader"
-            }, {
-                loader: "css-loader"
-            }, {
-                loader: "sass-loader",
-
-            }]
+                use: extractPlugin.extract({
+                    use: ['css-loader', 'sass-loader']
+                })
             },
             {
                 test:/\.css$/,
-                use: [{
-                loader: "style-loader"
-            }, {
-                loader: "css-loader"
-            }]
+                use: extractPlugin.extract({
+                    use: ['css-loader']
+                })
             },
             {
                 test: /\.(woff2?|svg)$/,
-                loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
+                loader: 'url-loader?&name=fonts/[name].[ext]'
             },
             {
                  test: /\.(ttf|eot|png)$/,
@@ -67,6 +65,7 @@ module.exports = {
                ]
     },
     plugins: [
+        extractPlugin,   
     new UglifyJSPlugin(),
     new webpack.DefinePlugin({
       'process.env': {

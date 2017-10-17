@@ -15,6 +15,7 @@ import Registration from 'Registration'
 import Hoc from 'Hoc'
 import Preloader from 'Preloader'
 
+
 const requireLogin = (nextState, replace, next) => {
   if (!firebase.auth().currentUser) {
     replace('/');

@@ -35,6 +35,19 @@
       background-color: #fff;
       color: #333;
       box-shadow: 1px 1px 2px 0px rgba(74,74,74,0.25);
+        &:after {
+            
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: .3em solid;
+            border-right: .3em solid transparent;
+            border-left: .3em solid transparent;
+
+        }
     }
   }
 }

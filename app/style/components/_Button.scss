@@ -8,4 +8,11 @@
   &:hover{
     color: $button-font;
   }
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.edit {
+    background-color: $blue-gray;
 }

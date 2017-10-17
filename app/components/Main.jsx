@@ -14,7 +14,7 @@ class Main extends Component {
         <TopBar/>
         <div className='main-head'>
           <img src={head} />
-          <h1>TITLE</h1>
+          <h1>SEARCHERY</h1>
         </div>
         <div className='container-fluid'>
           <div className='row mt-3 mb-3'>

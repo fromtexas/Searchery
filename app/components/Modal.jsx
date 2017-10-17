@@ -39,7 +39,7 @@ class Modal extends Component{
             </div>
             <div className="modal-footer">
               {or()}
-              <button onClick={this.hide.bind(this)} type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
+              <button onClick={this.hide.bind(this)} type="button" className="btn edit" data-dismiss="modal">No</button>
             </div>
           </div>
         </div>

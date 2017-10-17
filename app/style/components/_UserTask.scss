@@ -5,6 +5,9 @@
     color: $button-main;
     text-transform: uppercase;
     font-weight: 600;
+      &:hover {
+          color: $button-main;
+      }
   }
   .action-button{
     min-width: 50%;

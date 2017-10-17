@@ -23,16 +23,23 @@ var task = {
   category: 'Pets',
   reward: 'reward'
 };
-//store.dispatch(actions.addTask(task));
-//store.dispatch(actions.startAddTask(task));
+
 store.dispatch(actions.startGetTasks());
+
+const locationCheck = () => {
+    if(window.location.hash.indexOf('task') === -1) {
+          hashHistory.push('/')
+      }
+};
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login({uid: user.uid, email: user.email}));
+    store.dispatch(actions.errorMsg(''));
+    locationCheck();
   } else {
-    store.dispatch(actions.logout());
-    hashHistory.push('/')
+     store.dispatch(actions.logout());
+     locationCheck();
   }
 });
 

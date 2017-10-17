@@ -33,8 +33,8 @@ class UserTask extends Component {
     return (
       <div className='user-task col-2'>
         <a href={link}>{name}</a>
-        <button data-action='edit' onClick={this.handleShowModal.bind(this)} className='btn btn-primary action-button'>Edit</button>
-        <button data-action='delete' onClick={this.handleShowModal.bind(this)} className='btn btn-danger action-button'>Delete</button>
+        <button data-action='edit' onClick={this.handleShowModal.bind(this)} className='btn edit action-button'>Edit</button>
+        <button data-action='delete' onClick={this.handleShowModal.bind(this)} className='btn action-button'>Delete</button>
         {renderModal()}
       </div>
     )

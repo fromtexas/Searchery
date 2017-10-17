@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
+
 class TopBar extends Component {
 
   render () {
@@ -20,7 +21,9 @@ class TopBar extends Component {
 
     return (
       <nav className="navbar navbar-expand-lg">
-        <a className="navbar-brand" href="#">Navbar</a>
+        <a className="navbar-brand" href="#">
+            Searchery
+        </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

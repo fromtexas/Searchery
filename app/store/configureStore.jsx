@@ -1,6 +1,6 @@
 import * as redux from 'redux'
 import thunk from 'redux-thunk'
-import {ticketsReducer, serchReducer, filterByReducer, authReducer, loaderReducer, sortReducer} from 'reducers';
+import {ticketsReducer, serchReducer, filterByReducer, authReducer, loaderReducer, sortReducer, errorReducer} from 'reducers';
 
 export var configure = (initialState = {}) => {
 
@@ -10,7 +10,8 @@ export var configure = (initialState = {}) => {
     filterBy: filterByReducer,
     auth: authReducer,
     loader: loaderReducer,
-    sort: sortReducer
+    sort: sortReducer,
+    error: errorReducer
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(

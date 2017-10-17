@@ -34,7 +34,7 @@ class TaskList extends Component {
 
     const showButton = () => {
       if (filteredList.length !== arr.length) {
-        return <button onClick={this.handleLimit.bind(this)} className='btn btn-default'>load more</button>
+        return <button onClick={this.handleLimit.bind(this)} className='btn btn-default'>Load more</button>
       }
     };
 

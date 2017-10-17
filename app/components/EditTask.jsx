@@ -30,8 +30,23 @@ class EditTask extends Component {
        this.setState({cities: predictions ? predictions : []})
      });
   }
+    
+    check () {
+      const refsKeys = Object.keys(this.refs);
+        refsKeys.forEach((key) => {
+            if (!this.refs[key].value && key !== 'form') {
+
+                const node = document.createElement('LABEL');                 
+                const textNode = document.createTextNode('This field can\'t be empty!');      
+                node.appendChild(textNode); 
+                this.refs[key].parentElement.appendChild(node);
+
+            }
+        });
+    }
 
   editTask (e) {
+    e.preventDefault();
     const editState = {
       id: this.state.id,
       name: this.state.name,
@@ -44,9 +59,14 @@ class EditTask extends Component {
       reward: this.state.reward
 
     };
-    this.props.dispatch(startEditTask(editState));
-    window.location = `#/user/`;
-    e.preventDefault()
+    
+    this.check();
+    if (editState.name && editState.location && editState.info && editState.description && editState.city){
+        this.props.dispatch(startEditTask(editState));
+        window.location = `#/user/`;
+    }
+    
+    
   }
 
   handleEdit (e) {
@@ -78,6 +98,15 @@ class EditTask extends Component {
     this.setState({
       hidden: !this.state.hidden
     })
+  }
+    
+  selectCategory (e) {
+    if (e.target && e.target.nodeName == 'P') {
+        this.setState({
+            category: e.target.innerHTML
+        })
+      this.showList()
+    }
   }
 
   addPredict (e) {
@@ -121,13 +150,12 @@ class EditTask extends Component {
                 </div>
                 <div className="form-group">
                   <label>Category</label>
-                  <select data-ref='category' onChange={this.handleEdit.bind(this)} value={this.state.category} ref='cat' className="form-control">
-                    <option>Other</option>
-                    <option>Pets</option>
-                    <option>Cleening</option>
-                    <option>Constructions</option>
-                    <option>Mooving</option>
-                  </select>
+                  <div className='drop-wrap'>
+                    <div onClick={this.showList.bind(this)} ref='cat' className="form-control category-list">
+                      {this.state.category}
+                    </div>
+                    {renderCategoryList()}
+                  </div>
                 </div>
                 <div className="form-group">
                   <label>Your city</label>

@@ -13,6 +13,20 @@ class AddTask extends Component {
       hidden: true
     }
   }
+    
+  check () {
+      const refsKeys = Object.keys(this.refs);
+        refsKeys.forEach((key) => {
+            if (!this.refs[key].value && key !== 'form') {
+
+                const node = document.createElement('LABEL');                 
+                const textNode = document.createTextNode('This field can\'t be empty!');      
+                node.appendChild(textNode); 
+                this.refs[key].parentElement.appendChild(node);
+                
+            }
+        });
+  }
 
   handleGetCities () {
     var city = this.refs.city.value ? this.refs.city.value : ' ';
@@ -35,13 +49,14 @@ class AddTask extends Component {
 
   addNewTask (e) {
     e.preventDefault();
+    this.check();
     var {uid, email} = this.props.auth;
     var name = this.refs.name.value;
     var location = this.refs.location.value;
     var info = this.refs.info.value;
     var description = this.refs.description.value;
     var city = this.refs.city.value;
-    var category = this.refs.cat.innerHTML;
+    var category = this.refs.category.innerHTML;
     var reward = this.refs.reward.value;
     let latLng ={};
     let cityImg = '';
@@ -49,6 +64,7 @@ class AddTask extends Component {
     //remove all special char
     const regExp = (/[^\w\s]/gi);
     const cityArr = city.split(regExp);
+    if (name && location && info && description && city) {
     API.getPlace(cityArr[0]).then((res) => {
       if (res) {
         cityImg = res.photos[0].image.mobile;
@@ -59,7 +75,6 @@ class AddTask extends Component {
       latLng.lat = res[0].geometry.location.lat();
       latLng.lng = res[0].geometry.location.lng();
 
-      if (name && location && info && description && city) {
         var task = {
           uid,
           email,
@@ -75,10 +90,11 @@ class AddTask extends Component {
         };
         this.props.dispatch(actions.startAddTask(task));
         this.refs.form.reset();
-      }
+      
 
     });
     });
+    }
   }
   addPredict (e) {
     this.refs.city.value = e.target.innerHTML;
@@ -137,7 +153,7 @@ class AddTask extends Component {
                 <div className="form-group">
                   <label>Category</label>
                   <div className='drop-wrap'>
-                    <div onClick={this.showList.bind(this)} ref='cat' className="form-control category-list">
+                    <div onClick={this.showList.bind(this)} ref='category' className="form-control category-list">
                       Other
                     </div>
                     {renderCategoryList()}

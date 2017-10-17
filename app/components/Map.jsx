@@ -168,8 +168,10 @@ class Map extends Component {
     return (
     <div className='map-wrap'>
       <MapControls passNear={this.getNearTasks.bind(this)}/>
-      <button onClick={this.hideMarkers.bind(this)} className='btn btn-dafault'>hide markers</button>
-      <button onClick={this.showMarkers.bind(this)} className='btn btn-dafault'>show markers</button>
+      <div className='map-buttons-wrap'>
+          <button onClick={this.hideMarkers.bind(this)} className='btn edit'>Hide markers</button>
+          <button onClick={this.showMarkers.bind(this)} className='btn'>Show markers</button>
+      </div>
       <div ref='map' className='map'>
         <p>Map will be here</p>
       </div>

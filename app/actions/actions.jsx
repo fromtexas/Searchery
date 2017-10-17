@@ -83,7 +83,12 @@ export const startGetTasks = () => {
 
 
 
-
+export const show = (id) => {
+    return (dispatch, getState) =>{
+        const showRef = firebaseRef.child(`tasks/${id}`);
+        return showRef.once('value')
+    }
+}
 
 
 
@@ -120,11 +125,18 @@ export const startCreatingUser = (userObj) => {
 export const startLogin = (userObj) => {
   return (dispatch, getState) => {
     return firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.pass).catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
+      //console.log(error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      dispatch(errorMsg(errorMessage));
     })
   }
 }
+
+export const errorMsg = (msg) => ({
+    type: 'ERROR_MSG',
+    msg
+})
 
 export const startLogout = () => {
   return (dispatch, getState) => {

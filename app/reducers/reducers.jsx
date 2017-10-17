@@ -45,6 +45,15 @@ export const sortReducer = (state='createdAt', action) => {
   }
 }
 
+export const errorReducer = (state='', action) => {
+  switch (action.type) {
+    case 'ERROR_MSG':
+      return  action.msg;
+  default:
+      return state;
+  }
+}
+
 
 
 

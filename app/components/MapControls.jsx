@@ -13,13 +13,18 @@ class MapControls extends Component {
   render () {
     return (
       <div className='map-controls'>
-        <form onSubmit={this.getNearValue.bind(this)} ref='nearForm' className='form-inline'>
-          <div className="form-group">
-            <label>Tasks near u </label>
-            <input ref='nearInput' type="text" className="form-control" placeholder='in meters'/>
-          </div>
-          <button type="submit" className="btn">Confirm identity</button>
-        </form>
+       <div className='row'>
+           <div className='col-6'>
+               <form onSubmit={this.getNearValue.bind(this)} ref='nearForm'>
+                  <div className="form-group">
+                    <label>Find near</label>
+                    <input ref='nearInput' type="text" className="form-control" placeholder='In meters'/>
+                  </div>
+                  <button type="submit" className="btn">Submit</button>
+               </form>
+           </div>
+       </div>
+        
       </div>
     )
   }

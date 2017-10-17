@@ -44,21 +44,21 @@ class ControlsBar extends Component{
 
           <ul className="navbar-nav mr-auto controls-list">
             <li  className="nav-item date-hover">
-              <a className="btn" href="#">Date <span>▼</span></a>
+              <a className="btn" href="#">Date</a>
               <div onClick={this.handleFilter.bind(this)} className='date-dropdown'>
                 {arrWithoutDupe}
                 <p data-key='formatedDate'>All</p>
               </div>
             </li>
             <li  className="nav-item date-hover">
-              <a className="btn" href="#">City <span>▼</span></a>
+              <a className="btn" href="#">City</a>
               <div onClick={this.handleFilter.bind(this)} className='date-dropdown'>
                 {arrCitiesWithoutDupe}
                 <p data-key='city'>All</p>
               </div>
             </li>
             <li className="nav-item date-hover">
-              <a className="btn" href="#">Status <span>▼</span></a>
+              <a className="btn" href="#">Status</a>
                 <div onClick={this.handleFilter.bind(this)} className='date-dropdown'>
                   <p data-key='completed'>Completed</p>
                   <p data-key='completed'>Not completed</p>
@@ -66,7 +66,7 @@ class ControlsBar extends Component{
                 </div>
             </li>
             <li className="nav-item date-hover">
-              <a className="btn" href="#">Category <span>▼</span></a>
+              <a className="btn" href="#">Category</a>
                 <div onClick={this.handleFilter.bind(this)} className='date-dropdown'>
                   <p data-key='category'>Pets</p>
                   <p data-key='category'>Cleening</p>

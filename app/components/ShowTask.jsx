@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import moment from 'moment'
 import {styles} from 'MapStyle'
+import {show} from 'actions'
 
 class ShowTask extends Component {
   constructor (props) {
@@ -22,25 +23,35 @@ class ShowTask extends Component {
   componentDidMount () {
     var {tickets} = this.props;
     var {id} = this.props.params;
-    var current = tickets.find((item) => {
+    var current;
+    const promise = new Promise((resolve, reject) => {
+      current = tickets.find((item) => {
       if(item.id == id){
         return item
       }
+      }) || this.props.dispatch(show(id)).then((res) => {
+        //console.log(res.val());
+        return res.val() || {};
+      });
+      resolve(current)
     });
+    
+    promise.then((res) => {
     this.setState({
-      name: current.name,
-      location: current.location,
-      description: current.description,
-      id: current.id,
-      info: current.info,
-      city: current.city,
-      category: current.category,
-      reward: current.reward,
-      email: current.email,
-      createdAt: current.createdAt,
-      latLng: current.latLng
-    }, this.setMap(current.latLng)
-  );
+      name: res.name,
+      location: res.location,
+      description: res.description,
+      id: res.id,
+      info: res.info,
+      city: res.city,
+      category: res.category,
+      reward: res.reward,
+      email: res.email,
+      createdAt: res.createdAt,
+      latLng: res.latLng
+    }, this.setMap(res.latLng)
+    );
+    })
   }
 
   setMap (latLng) {
