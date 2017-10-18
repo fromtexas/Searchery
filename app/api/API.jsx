@@ -1,13 +1,13 @@
 import axios from 'axios'
 
 
-export var noDupe = (arr, key) => {
+export const noDupe = (arr, key) => {
   var newArr = arr.map((item) => item[key].toLowerCase());
   var arrWithoutDupe = Array.from(new Set(newArr));
   return arrWithoutDupe
 }
 
-export var getPlace = (input) => {
+export const getPlace = (input) => {
 
   const encodedLocation = input.trim().replace(/\s+/g, '-').toLowerCase();
   const places = 'https://api.teleport.org/api/urban_areas/';
@@ -25,7 +25,7 @@ export var getPlace = (input) => {
 
 
 
-var searchTasks = (tasks, searchText) => {
+const searchTasks = (tasks, searchText) => {
  return  tasks.filter((item) => {
     if((item.name.toLowerCase()).indexOf(searchText) != -1){
         return item;
@@ -37,7 +37,7 @@ var searchTasks = (tasks, searchText) => {
 
 
 
-var sortArr = (tasks, sortVal) => {
+const sortArr = (tasks, sortVal) => {
   return tasks.sort((a, b) => (b[sortVal]).toString().localeCompare((a[sortVal]).toString()))
 }
 
@@ -61,8 +61,8 @@ const filterBy = (tasks) => {
 
 
 
-export var composeFilter = (tasks, searchText, city, category, formatedDate,  completed, sortVal) => {
-  var rerender = searchTasks(tasks, searchText);
+export const composeFilter = (tasks, searchText, city, category, formatedDate,  completed, sortVal) => {
+  let rerender = searchTasks(tasks, searchText);
   rerender = sortArr(rerender, sortVal);
   rerender = filterBy(rerender)(completed);
   rerender = filterBy(rerender)(formatedDate);

@@ -215,6 +215,14 @@
   .footer .left {
     background-color: #FF4B56;
     color: #fff; }
+    .footer .left a {
+      color: #fff; }
+      .footer .left a:hover {
+        color: #fff; }
+  .footer .right a {
+    color: #FF4B56; }
+    .footer .right a:hover {
+      color: #FF4B56; }
 
 .card {
   border: none !important;

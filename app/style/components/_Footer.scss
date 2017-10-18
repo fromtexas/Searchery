@@ -7,5 +7,19 @@
   .left{
     background-color: $button-main;
     color:#fff;
+      a{
+       color: #fff;
+          &:hover{
+             color: #fff; 
+          }
+      }
   }
+    .right{
+        a{
+            color: $button-main;
+            &:hover{
+                color: $button-main;
+            }
+        }
+    }
 }

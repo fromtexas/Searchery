@@ -1,4 +1,4 @@
-export var ticketsReducer = (state=[], action) => {
+export const ticketsReducer = (state=[], action) => {
   switch (action.type) {
     case 'ADD_TASK':
       return [...state, action.task];
@@ -56,8 +56,7 @@ export const errorReducer = (state='', action) => {
 
 
 
-
-export var serchReducer = (state='', action) => {
+export const serchReducer = (state='', action) => {
   switch (action.type) {
     case 'GET_SEARCH':
       return  action.search;
@@ -66,7 +65,7 @@ export var serchReducer = (state='', action) => {
   }
 }
 
-export var loaderReducer = (state=true, action) => {
+export const loaderReducer = (state=true, action) => {
   switch (action.type) {
     case 'CHANGE_LOADER':
       return  action.isLoading;
@@ -121,7 +120,7 @@ export const filterByReducer = (state=filterByState, action) => {
 }
 
 
-export var authReducer = (state={}, action) => {
+export const authReducer = (state={}, action) => {
   switch (action.type) {
     case 'LOGIN':
       return {

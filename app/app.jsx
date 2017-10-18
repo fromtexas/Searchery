@@ -12,17 +12,7 @@ import Router from 'app/router/'
 import {configure} from 'configureStore'
 import * as actions from 'actions'
 
-var store = configure();
-
-var task = {
-  name: 'ticket',
-  location: 'Myasnitskaya ul., 13с1',
-  info: 'info',
-  description: 'description',
-  city: 'Moscow',
-  category: 'Pets',
-  reward: 'reward'
-};
+const store = configure();
 
 store.dispatch(actions.startGetTasks());
 

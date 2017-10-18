@@ -3,7 +3,6 @@ import moment from 'moment'
 
 export const startAddTask = (taskVal) => {
   return (dispatch, getState) => {
-    //var uid = getState().auth.uid;
     const createdAt = moment().unix();
     const formatedDate = moment.unix(createdAt).format('MMMM, YYYY');
     const task =
@@ -26,7 +25,6 @@ export const startAddTask = (taskVal) => {
 
 export const startGetTasks = () => {
   return (dispatch, getState) => {
-      //var uid = getState().auth.uid;
       const taskRef = firebaseRef.child(`tasks`);
       return taskRef.once('value').then((snapshot) => {
         const tasksVal = snapshot.val() || {};
@@ -42,43 +40,6 @@ export const startGetTasks = () => {
       })
   }
 };
-
-//requre to think about this shit. also need more tests
-//countoffset should be more presize
-//FUCKEN SHIT BELLOW
-// export const startGetTasks = () => {
-//   return (dispatch, getState) => {
-//
-//       let tasksFromStore = getState().tickets.length;
-//       const taskRef = firebaseRef.child(`tasks`);
-//
-//       return taskRef.once('value').then((snapshot) => {
-//         const tasksVal = snapshot.val() || {};
-//         let tasks = [];
-//         const tasksKeys = Object.keys(tasksVal);
-//         tasksKeys.forEach((id) => {
-//           tasks.push({
-//             id,
-//             ...tasksVal[id]
-//           });
-//         });
-//         if (tasksFromStore < tasks.length) {
-//           let taskOffset = tasks.length - tasksFromStore;
-//           if (taskOffset >= 5) {
-//             taskOffset = 5;
-//           }
-//           tasks = tasks.slice(tasksFromStore, (taskOffset + tasksFromStore));
-//
-//           console.log(taskOffset);
-//           dispatch(addTasks(tasks));
-//         }
-//       })
-//   }
-// };
-
-
-
-
 
 
 
@@ -193,14 +154,14 @@ export const addTasks = (tasks) => {
 }
 
 
-export var addTask = (task) => {
+export const addTask = (task) => {
   return {
     type:'ADD_TASK',
     task
   };
 }
 
-export var getSearch = (search) => {
+export const getSearch = (search) => {
   return {
     type: 'GET_SEARCH',
     search
