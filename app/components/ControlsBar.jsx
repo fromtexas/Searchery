@@ -9,7 +9,7 @@ import ActiveFiltersList from 'ActiveFiltersList'
 class ControlsBar extends Component{
 
   getSearchValue (e) {
-    var searchVal = this.refs.search.value;
+    const searchVal = this.refs.search.value;
     this.props.dispatch(actions.getSearch(searchVal))
     e.preventDefault();
   }
@@ -31,13 +31,13 @@ class ControlsBar extends Component{
   }
 
   render () {
-    var {tickets} = this.props;
+    const {tickets} = this.props;
 
-    var datesNoDupe = noDupe(tickets, 'formatedDate');
-    var arrWithoutDupe = datesNoDupe.map((item) => <p data-key='formatedDate' key={item}>{item}</p>);
+    const datesNoDupe = noDupe(tickets, 'formatedDate');
+    const arrWithoutDupe = datesNoDupe.map((item) => <p data-key='formatedDate' key={item}>{item}</p>);
 
-    var citiesNoDupe = noDupe(tickets, 'city');
-    var arrCitiesWithoutDupe = citiesNoDupe.map((item) => <p data-key='city' key={item}>{item}</p>);
+    const citiesNoDupe = noDupe(tickets, 'city');
+    const arrCitiesWithoutDupe = citiesNoDupe.map((item) => <p data-key='city' key={item}>{item}</p>);
 
     return (
       <nav className="navbar navbar-expand-lg">

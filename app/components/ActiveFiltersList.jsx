@@ -19,7 +19,7 @@ class ActiveFiltersList extends Component {
         return item
       }
     })
-
+    //don't use index as key
     const renderFilters = filterArr.map((filter, index)=>{
       return <ActiveFilter key={index} propKey={filter.key} property={filter.property}/>
     })

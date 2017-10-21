@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 
 
 class TopBar extends Component {
@@ -9,11 +10,11 @@ class TopBar extends Component {
     const renderOr = () => {
       if (uid) {
         return (
-          <a href="#/user" className='btn btn-default nav-link'>{email}</a>
+            <Link className='btn btn-default nav-link' to='/user'>{email}</Link>
         )
       } else {
         return (
-            <a href='#/registration' className='btn btn-default nav-link'>Sign up</a>
+            <Link className='btn btn-default nav-link' to='/registration'>Sign up</Link>
         )
       }
     }

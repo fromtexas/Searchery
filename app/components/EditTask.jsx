@@ -23,9 +23,9 @@ class EditTask extends Component {
 
   handleGetCities (e) {
     this.handleEdit(e)
-    var city = this.refs.city.value ? this.refs.city.value : ' ';
-    var service = new google.maps.places.AutocompleteService();
-    var res = service.getPlacePredictions({ input: city, types: ['(cities)'] },
+    const city = this.refs.city.value ? this.refs.city.value : ' ';
+    const service = new google.maps.places.AutocompleteService();
+    const res = service.getPlacePredictions({ input: city, types: ['(cities)'] },
      (predictions, status) => {
        this.setState({cities: predictions ? predictions : []})
      });
@@ -74,9 +74,9 @@ class EditTask extends Component {
  }
 
   componentDidMount () {
-    var {tickets} = this.props;
-    var {id} = this.props.params;
-    var current = tickets.find((item) => {
+    const {tickets} = this.props;
+    const {id} = this.props.params;
+    const current = tickets.find((item) => {
       if(item.id == id){
         return item
       }
@@ -117,10 +117,10 @@ class EditTask extends Component {
   }
 
   render () {
-    var predictions = this.state.cities.map((city) => {
+    const predictions = this.state.cities.map((city) => {
       return <li onClick={this.addPredict.bind(this)} key={city.id}>{city.description}</li>
     });
-    var renderList = () => {
+    const renderList = () => {
       if(this.state.cities.length) {
         return <ul className='list-unstyled city-auto'>{predictions}</ul>
       }

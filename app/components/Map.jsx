@@ -34,11 +34,11 @@ class Map extends Component {
   }
 
   setUserLocation(map) {
-    var geoOptions = {
+    const geoOptions = {
       maximumAge: 5 * 60 * 1000,
     };
 
-    var infoWindow = new google.maps.InfoWindow({map: map});
+    const infoWindow = new google.maps.InfoWindow({map: map});
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -95,13 +95,13 @@ class Map extends Component {
        );
 
         if(calcDistance < near || near === 0) {
-         var marker = new google.maps.Marker({
+         const marker = new google.maps.Marker({
            position: location.latLng,
            map: map
          });
 
          marker.addListener('click', () => {
-           var infoWindow = new google.maps.InfoWindow({map: map});
+           const infoWindow = new google.maps.InfoWindow({map: map});
            infoWindow.setContent(`
              <h5>${location.name}</h5>
              <p>${location.info}</p>
@@ -145,11 +145,11 @@ class Map extends Component {
 
 
   setMap() {
-    var uluru = {lat: -25.363, lng: 131.044};
+    const uluru = {lat: -25.363, lng: 131.044};
 
 
 
-    var map = new google.maps.Map(this.refs.map, {
+    const map = new google.maps.Map(this.refs.map, {
       zoom: 10,
       center: uluru,
       styles: styles

@@ -22,8 +22,8 @@ class TaskList extends Component {
 
 
   render () {
-    var {tickets, search, filterBy, loader, sort} = this.props;
-    var filteredList = API.composeFilter(tickets, search, filterBy.city, filterBy.category, filterBy.formatedDate, filterBy.completed, sort);
+    const {tickets, search, filterBy, loader, sort} = this.props;
+    const filteredList = API.composeFilter(tickets, search, filterBy.city, filterBy.category, filterBy.formatedDate, filterBy.completed, sort);
     let arr = [];
      const {limit} = this.state;
      filteredList.forEach((ticket, index) => {
@@ -38,7 +38,7 @@ class TaskList extends Component {
       }
     };
 
-    var renderList = arr.map(item => <Task key={item.id} {...item}/>)
+    const renderList = arr.map(item => <Task key={item.id} {...item}/>)
     return (
       <div>
         <Sort/>

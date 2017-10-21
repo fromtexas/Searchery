@@ -2,9 +2,9 @@ import * as redux from 'redux'
 import thunk from 'redux-thunk'
 import {ticketsReducer, serchReducer, filterByReducer, authReducer, loaderReducer, sortReducer, errorReducer} from 'reducers';
 
-export var configure = (initialState = {}) => {
+export const configure = (initialState = {}) => {
 
-  var reducer = redux.combineReducers({
+  const reducer = redux.combineReducers({
     tickets: ticketsReducer,
     search: serchReducer,
     filterBy: filterByReducer,

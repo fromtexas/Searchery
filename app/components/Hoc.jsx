@@ -4,10 +4,10 @@ import {connect} from 'react-redux'
 
 
 export default (Composed, Preloader) => {
-  class Authentication extends Component {
+  class ShowLoader extends Component {
     
     render () {
-      let {tickets} = this.props;
+      const {tickets} = this.props;
       const renderPreloader = () => {
         return tickets.length ? <Composed/> : <Preloader/>
       };
@@ -20,5 +20,6 @@ export default (Composed, Preloader) => {
     return {
       tickets
     }
-  })(Authentication)
+  })(ShowLoader)
 }
+

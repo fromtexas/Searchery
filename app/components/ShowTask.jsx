@@ -21,9 +21,9 @@ class ShowTask extends Component {
   }
 
   componentDidMount () {
-    var {tickets} = this.props;
-    var {id} = this.props.params;
-    var current;
+    const {tickets} = this.props;
+    const {id} = this.props.params;
+    let current;
     const promise = new Promise((resolve, reject) => {
       current = tickets.find((item) => {
       if(item.id == id){
@@ -55,13 +55,13 @@ class ShowTask extends Component {
   }
 
   setMap (latLng) {
-    var map = new google.maps.Map(this.refs.map, {
+    const map = new google.maps.Map(this.refs.map, {
       zoom: 15,
       center: latLng,
       styles: styles
     });
 
-    var marker = new google.maps.Marker({
+    const marker = new google.maps.Marker({
     position: latLng,
     map: map
   });

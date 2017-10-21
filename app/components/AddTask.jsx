@@ -29,9 +29,10 @@ class AddTask extends Component {
   }
 
   handleGetCities () {
-    var city = this.refs.city.value ? this.refs.city.value : ' ';
-    var service = new google.maps.places.AutocompleteService();
-    var res = service.getPlacePredictions({ input: city, types: ['(cities)'] },
+      //probaly may create erros
+    const city = this.refs.city.value ? this.refs.city.value : ' ';
+    const service = new google.maps.places.AutocompleteService();
+    const res = service.getPlacePredictions({ input: city, types: ['(cities)'] },
      (predictions, status) => {
        this.setState({cities: predictions ? predictions : []})
      });
@@ -50,14 +51,14 @@ class AddTask extends Component {
   addNewTask (e) {
     e.preventDefault();
     this.check();
-    var {uid, email} = this.props.auth;
-    var name = this.refs.name.value;
-    var location = this.refs.location.value;
-    var info = this.refs.info.value;
-    var description = this.refs.description.value;
-    var city = this.refs.city.value;
-    var category = this.refs.category.innerHTML;
-    var reward = this.refs.reward.value;
+    const {uid, email} = this.props.auth;
+    const name = this.refs.name.value;
+    const location = this.refs.location.value;
+    const info = this.refs.info.value;
+    const description = this.refs.description.value;
+    const city = this.refs.city.value;
+    const category = this.refs.category.innerHTML;
+    const reward = this.refs.reward.value;
     let latLng ={};
     let cityImg = '';
     const fulllocation = `${city}, ${location}`;
@@ -75,7 +76,7 @@ class AddTask extends Component {
       latLng.lat = res[0].geometry.location.lat();
       latLng.lng = res[0].geometry.location.lng();
 
-        var task = {
+        const task = {
           uid,
           email,
           name,
@@ -118,10 +119,10 @@ class AddTask extends Component {
 
   render () {
 
-    var predictions = this.state.cities.map((city) => {
+    const predictions = this.state.cities.map((city) => {
       return <li onClick={this.addPredict.bind(this)} key={city.id}>{city.description}</li>
     });
-    var renderList = () => {
+    const renderList = () => {
       if(this.state.cities.length) {
         return <ul className='list-unstyled city-auto'>{predictions}</ul>
       }
