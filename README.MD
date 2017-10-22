@@ -31,8 +31,8 @@ The Bulletin board in React + Redux -> [Demo](https://fromtexas.github.io/Search
 ## Run on your Machine
    
 1. Clone Repository: `git clone git@github.com:fromtexas/Searchery.git`
-2. cd Searchery
-3. mkdir config
+2. `cd Searchery`
+3. `mkdir config`
 4. create development.env file and put here your firebase config
 5. `npm install`
 6. `npm start`
