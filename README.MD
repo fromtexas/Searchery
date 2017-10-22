@@ -4,7 +4,6 @@ The Bulletin board in React + Redux -> [Demo](https://fromtexas.github.io/Search
 
 ![Searchery](https://image.ibb.co/b63b5m/searchery.png)
 
-## Get started on your own!
 
 ## Includes
 
