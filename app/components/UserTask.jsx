@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Modal from 'Modal'
+import {Link} from 'react-router'
 
 
 
@@ -23,7 +24,6 @@ class UserTask extends Component {
   }
   render () {
     const {name,id} = this.props;
-    const link = `/#/task/${id}`;
 
     const renderModal = () => {
       if (this.state.showModal) {
@@ -32,7 +32,7 @@ class UserTask extends Component {
     }
     return (
       <div className='user-task col-2'>
-        <a href={link}>{name}</a>
+        <Link to={`task/${id}`}>{name}</Link>
         <button data-action='edit' onClick={this.handleShowModal.bind(this)} className='btn edit action-button'>Edit</button>
         <button data-action='delete' onClick={this.handleShowModal.bind(this)} className='btn action-button'>Delete</button>
         {renderModal()}
