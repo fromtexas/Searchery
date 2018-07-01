@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import * as API from 'API'
-import {startGetTasks} from 'actions'
-import Preloader from 'Preloader'
 import Task from 'Task'
 import Sort from 'Sort'
 

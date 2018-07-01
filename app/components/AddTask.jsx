@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import moment from 'moment'
 import * as actions from 'actions'
 import * as API from 'API'
 
@@ -15,21 +14,22 @@ class AddTask extends Component {
   }
     
   check () {
-      const refsKeys = Object.keys(this.refs);
-        refsKeys.forEach((key) => {
-            if (!this.refs[key].value && key !== 'form') {
+    const refsKeys = Object.keys(this.refs);               
+    refsKeys.forEach((key) => {
 
-                const node = document.createElement('LABEL');                 
-                const textNode = document.createTextNode('This field can\'t be empty!');      
-                node.appendChild(textNode); 
-                this.refs[key].parentElement.appendChild(node);
-                
-            }
-        });
+      const node = document.createElement('LABEL');
+      node.classList.add('warning-lable');   
+      const textNode = document.createTextNode('This field can\'t be empty!'); 
+      node.appendChild(textNode);
+
+      if (!this.refs[key].value && key !== 'form' && key !== 'category') {
+        this.refs[key].parentElement.appendChild(node);
+      }
+
+    });
   }
 
   handleGetCities () {
-      //probaly may create erros
     const city = this.refs.city.value ? this.refs.city.value : ' ';
     const service = new google.maps.places.AutocompleteService();
     const res = service.getPlacePredictions({ input: city, types: ['(cities)'] },
@@ -112,7 +112,7 @@ class AddTask extends Component {
 
   selectCategory (e) {
     if (e.target && e.target.nodeName == 'P') {
-      this.refs.cat.innerHTML = e.target.innerHTML;
+      this.refs.category.innerHTML = e.target.innerHTML;
       this.showList()
     }
   }
