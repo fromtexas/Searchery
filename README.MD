@@ -1,6 +1,6 @@
 # Searchery
 
-The Bulletin board in React + Redux -> [Demo](https://fromtexas.github.io/SearcheryBundle/)
+The Bulletin board in React + Redux -> [Demo](http://humorous-band.surge.sh)
 
 ![Searchery](https://image.ibb.co/b63b5m/searchery.png)
 
