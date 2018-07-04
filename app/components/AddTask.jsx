@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import * as actions from 'actions'
 import * as API from 'API'
+// import RadioButton from './RadioButton';
+// import RadioBtnWrap from './RadioButton/RadioBtnWrap';
 
 class AddTask extends Component {
 
@@ -9,9 +11,14 @@ class AddTask extends Component {
     super(props)
     this.state = {
       cities: [],
-      hidden: true
+      hidden: true,
     }
   }
+
+  // getRadioBtnValue (value) {
+  //   this.radioBtnValue = value;
+  //   console.log(this.radioBtnValue);
+  // }
     
   check () {
     const refsKeys = Object.keys(this.refs);               
@@ -147,6 +154,11 @@ class AddTask extends Component {
           <form ref='form' onSubmit={this.addNewTask.bind(this)}>
             <div className='row'>
               <div className='col-6'>
+              {/* <RadioBtnWrap getValue={this.getRadioBtnValue.bind(this)} value='email'>
+                <RadioButton value='email'/>
+                <RadioButton value='pizza'/>
+                <RadioButton value='dukie'/>
+              </RadioBtnWrap> */}
                 <div className="form-group">
                   <label>Ticket</label>
                   <input ref='name' type="text" className="form-control"  placeholder="Enter name of your ticket"/>
